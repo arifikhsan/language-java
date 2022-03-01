@@ -1,16 +1,21 @@
 package assignment.carrot;
 
-public class Transaction {
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+
+public class History {
     private User sender;
     private User receiver;
     private TransactionType type;
     private int point;
+    private LocalDateTime datetime;
 
-    public Transaction(User sender, User receiver, TransactionType type, int point) {
+    public History(User sender, User receiver, TransactionType type, int point, LocalDateTime datetime) {
         this.sender = sender;
         this.receiver = receiver;
         this.type = type;
         this.point = point;
+        this.datetime = datetime;
     }
 
     public User getSender() {
@@ -45,13 +50,22 @@ public class Transaction {
         this.point = point;
     }
 
+    public LocalDateTime getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(LocalDateTime datetime) {
+        this.datetime = datetime;
+    }
+
     @Override
     public String toString() {
-        return "Transaction{" +
-                "sender=" + sender +
-                ", receiver=" + receiver +
-                ", type=" + type +
-                ", point=" + point +
-                '}';
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss.SSS");
+
+        if (type == TransactionType.SEND) {
+            return sender.getName() + " send " + point + " point to " + receiver.getName() + " at " + datetime.toLocalDate();
+        } else {
+            return receiver.getName() + " receive " + point + " point from " + sender.getName() + " at " + datetime.toLocalDate();
+        }
     }
 }

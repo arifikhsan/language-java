@@ -1,5 +1,6 @@
 package assignment.carrot;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class User {
@@ -46,19 +47,19 @@ public class User {
                 '}';
     }
 
-    public void sendPoint(List<Transaction> transactions, User receiver, Integer point) {
+    public void sendPoint(List<History> histories, User receiver, Integer point) {
         this.setPoint(this.getPoint() - point);
-        transactions.add(new Transaction(this, receiver, TransactionType.SEND, point));
+        histories.add(new History(this, receiver, TransactionType.SEND, point, LocalDateTime.now()));
 
         receiver.setPoint(receiver.getPoint() + point);
-        transactions.add(new Transaction(this, receiver, TransactionType.RECEIVE, point));
+        histories.add(new History(this, receiver, TransactionType.RECEIVE, point, LocalDateTime.now()));
     }
 
-    public void askPoint(List<Transaction> transactions, User sender, Integer point) {
+    public void askPoint(List<History> histories, User sender, Integer point) {
         this.setPoint(this.getPoint() + point);
-        transactions.add(new Transaction(sender, this, TransactionType.SEND, point));
+        histories.add(new History(sender, this, TransactionType.SEND, point, LocalDateTime.now()));
 
         sender.setPoint(sender.getPoint() - point);
-        transactions.add(new Transaction(sender, this, TransactionType.RECEIVE, point));
+        histories.add(new History(sender, this, TransactionType.RECEIVE, point, LocalDateTime.now()));
     }
 }
