@@ -1,6 +1,5 @@
 package assignment.carrot;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 
 public class History {
