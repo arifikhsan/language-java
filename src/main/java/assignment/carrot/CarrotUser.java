@@ -21,12 +21,14 @@ public class CarrotUser {
         arif.askPoint(transactions, udin, 2);
 
         // 3 done
-        System.out.println(arif.getPoint());
-        System.out.println(udin.getPoint());
+        System.out.println("Poin di arif: " + arif.getPoint());
+        System.out.println("Poin di udin: " + udin.getPoint());
 
-        System.out.println(transactions.size());
+        System.out.println("Transactions " + "(" + transactions.size() + "): ");
+        System.out.println(transactions);
 
         // 4 done
+        System.out.println("Users " + "(" + users.size() + "): ");
         System.out.println(users);
     }
 }
