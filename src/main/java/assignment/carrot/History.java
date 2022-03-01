@@ -60,8 +60,6 @@ public class History {
 
     @Override
     public String toString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss.SSS");
-
         if (type == TransactionType.SEND) {
             return sender.getName() + " send " + point + " point to " + receiver.getName() + " at " + datetime.toLocalDate();
         } else {
