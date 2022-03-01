@@ -7,7 +7,8 @@ public class User {
     private String name;
     private Integer point;
 
-    public User(String name, Integer point) {
+    public User(int id, String name, Integer point) {
+        this.id = id;
         this.name = name;
         this.point = point;
     }

@@ -12,8 +12,8 @@ public class CarrotUser {
         ArrayList<Transaction> transactions = new ArrayList<>();
 
         // 1 done
-        User arif = new User("Arif", 10);
-        User udin = new User("Udin", 10);
+        User arif = new User(1, "Arif", 10);
+        User udin = new User(2, "Udin", 10);
         ArrayList<User> users = new ArrayList<>(List.of(arif, udin));
 
         // 2 done
@@ -25,6 +25,8 @@ public class CarrotUser {
         System.out.println(udin.getPoint());
 
         System.out.println(transactions.size());
+
+        // 4 done
         System.out.println(users);
     }
 }
